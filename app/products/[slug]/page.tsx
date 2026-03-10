@@ -13,7 +13,7 @@ interface Product {
   images: { url: string; alt: string }[];
 }
 
-// Static placeholder data; later this can be loaded from your database/API.
+// Ensure the slug values in PRODUCTS match those in bedding/page.tsx
 const PRODUCTS: Product[] = [
   {
     slug: "cotton-bedsheet-set",
@@ -42,10 +42,11 @@ const PRODUCTS: Product[] = [
       },
     ],
   },
+  // Add other products as needed
 ];
 
-export default function ProductPage({ params }: any) {
-  const slug = (params as { slug?: string })?.slug ?? "";
+export default async function ProductPage({ params }: { params: { slug: string } }) {
+  const slug = params.slug;
   const product = PRODUCTS.find((p) => p.slug === slug);
 
   if (!product) {

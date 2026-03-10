@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 interface BeddingSubcategory {
   id: string;
@@ -8,6 +9,7 @@ interface BeddingSubcategory {
     name: string;
     imageUrl: string;
     alt: string;
+    slug?: string;
   }[];
 }
 
@@ -22,11 +24,13 @@ const beddingSubcategories: BeddingSubcategory[] = [
         name: "Cotton Bedsheet Set",
         imageUrl: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&q=80",
         alt: "Cotton bedsheet set on a double bed",
+        slug: "cotton-bedsheet-set",
       },
       {
         name: "Patterned Bedsheet",
         imageUrl: "https://images.unsplash.com/photo-1505691723518-36a5ac3be353?w=600&q=80",
         alt: "Patterned bedsheet with cushions",
+        slug: "patterned-bedsheet",
       },
     ],
   },
@@ -39,11 +43,13 @@ const beddingSubcategories: BeddingSubcategory[] = [
         name: "Memory Foam Pillow",
         imageUrl: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&q=80",
         alt: "Memory foam pillow on a bed",
+        slug: "memory-foam-pillow",
       },
       {
         name: "Decorative Cushions",
         imageUrl: "https://images.unsplash.com/photo-1582719478250-cc968f699cd4?w=600&q=80",
         alt: "Decorative cushions arranged on a bed",
+        slug: "decorative-cushions",
       },
     ],
   },
@@ -56,11 +62,13 @@ const beddingSubcategories: BeddingSubcategory[] = [
         name: "Sheer Curtains",
         imageUrl: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80",
         alt: "Sheer curtains in a bright bedroom",
+        slug: "sheer-curtains",
       },
       {
         name: "Blackout Curtains",
         imageUrl: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&q=80",
         alt: "Dark blackout curtains framing a window",
+        slug: "blackout-curtains",
       },
     ],
   },
@@ -73,11 +81,13 @@ const beddingSubcategories: BeddingSubcategory[] = [
         name: "Quilted Comforter",
         imageUrl: "https://images.unsplash.com/photo-1523755231516-e43fd2e8dca5?w=600&q=80",
         alt: "Quilted comforter folded on a bed",
+        slug: "quilted-comforter",
       },
       {
         name: "Lightweight Duvet",
         imageUrl: "https://images.unsplash.com/photo-1520256862855-398228c41684?w=600&q=80",
         alt: "Lightweight duvet on a neatly made bed",
+        slug: "lightweight-duvet",
       },
     ],
   },
@@ -121,22 +131,20 @@ export default function BeddingPage() {
         </nav>
 
         {/* "All" section shows every subcategory in order */}
-        <section id="bedding-all" className="space-y-12 mb-16 scroll-mt-24">
+        {/* <section id="bedding-all" className="space-y-12 mb-16 scroll-mt-24">
           {beddingSubcategories.map((subcategory) => (
             <SubcategorySection key={subcategory.id} subcategory={subcategory} />
           ))}
-        </section>
+        </section> */}
 
         {/* Individual anchored sections (for when user jumps via pills) */}
-        <section className="space-y-16">
-          {beddingSubcategories.map((subcategory) => (
-            <SubcategorySection
-              key={`${subcategory.id}-anchored`}
-              subcategory={subcategory}
-              anchorId={subcategory.id}
-            />
-          ))}
-        </section>
+        {beddingSubcategories.map((subcategory) => (
+          <SubcategorySection
+            key={subcategory.id}
+            subcategory={subcategory}
+            anchorId={subcategory.id}
+          />
+        ))}
       </div>
     </main>
   );
@@ -155,8 +163,8 @@ function SubcategorySection({
   const sectionId = anchorId ?? `${subcategory.id}-inline`;
 
   return (
-    <section id={sectionId} className="scroll-mt-24">
-      <header className="mb-4">
+    <section id={sectionId} className="scroll-mt-24 mb-16">
+      <header className="mb-3">
         <h2 className="text-2xl font-semibold text-text-primary">
           {subcategory.name}
         </h2>
@@ -170,15 +178,17 @@ function SubcategorySection({
             key={item.name}
             className="group rounded-2xl overflow-hidden bg-white border border-beige shadow-sm hover:shadow-md transition-shadow"
           >
-            <div className="relative aspect-[4/3] overflow-hidden">
-              <Image
-                src={item.imageUrl}
-                alt={item.alt}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
-            </div>
+            <Link href={`/products/${item.slug}`}>
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src={item.imageUrl}
+                  alt={item.alt}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
+            </Link>
             <div className="p-4">
               <h3 className="text-base font-medium text-text-primary">
                 {item.name}
