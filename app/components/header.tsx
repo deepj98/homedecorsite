@@ -5,12 +5,13 @@ import { useState, useRef, useEffect } from "react";
 
 const navLinks = [
   { label: "Categories", href: "#categories", subLinks: [
-    { label: "Bed", href: "#categories-bed" },
+    { label: "Bedding", href: "#categories-bed" },
     { label: "Bath", href: "#categories-bath" },
     { label: "Kitchen", href: "#categories-kitchen" },
-    { label: "Beautification / Safety Nets", href: "#categories-beautification" },
+    { label: "Beautification & Safety Nets", href: "#categories-beautification" },
   ]},
   { label: "About", href: "#about" },
+  // { label: "Contact", href: "#contact" },
 ];
 
 export function Header() {
@@ -71,6 +72,12 @@ export function Header() {
           >
             About
           </Link>
+          {/* <Link
+            href="#contact"
+            className="rounded-xl px-4 py-2 text-text-primary hover:bg-beige-light transition-colors"
+          >
+            Contact
+          </Link> */}
         </nav>
       </div>
     </header>

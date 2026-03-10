@@ -1,9 +1,10 @@
 import { CategoryCard, type CategoryItem } from "./category-card";
 
-const categories: { id: string; title: string; items: CategoryItem[] }[] = [
+const categories: { id: string; title: string; href: string; items: CategoryItem[] }[] = [
   {
     id: "categories-bed",
-    title: "Bed",
+    title: "BEDDING",
+    href: "/bedding",
     items: [
       { name: "Bedsheets", imageUrl: "https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=600&q=80", alt: "Bedsheets" },
       { name: "Pillows", imageUrl: "https://images.unsplash.com/photo-1584100936593-c0654b55a2e2?w=600&q=80", alt: "Pillows" },
@@ -13,7 +14,8 @@ const categories: { id: string; title: string; items: CategoryItem[] }[] = [
   },
   {
     id: "categories-bath",
-    title: "Bath",
+    title: "BATH",
+    href: "/bath",
     items: [
       { name: "Bath Towels", imageUrl: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80", alt: "Bath towels" },
       { name: "Door Mats", imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80", alt: "Door mats" },
@@ -23,7 +25,8 @@ const categories: { id: string; title: string; items: CategoryItem[] }[] = [
   },
   {
     id: "categories-kitchen",
-    title: "Kitchen",
+    title: "KITCHEN",
+    href: "/kitchen",
     items: [
       { name: "Set of Utensils", imageUrl: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80", alt: "Set of utensils" },
       { name: "Utensils Soaking Cloth", imageUrl: "https://images.unsplash.com/photo-1584990347492-2c256f738c3a?w=600&q=80", alt: "Utensils soaking cloth" },
@@ -33,7 +36,8 @@ const categories: { id: string; title: string; items: CategoryItem[] }[] = [
   },
   {
     id: "categories-beautification",
-    title: "Beautification / Safety Nets",
+    title: "BEAUTIFICATION & SAFETY NETS",
+    href: "/beautification",
     items: [
       { name: "Balcony Netting", imageUrl: "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=600&q=80", alt: "Balcony netting" },
       { name: "Safety Nets", imageUrl: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80", alt: "Safety nets" },
@@ -52,7 +56,7 @@ export function CategoriesSection() {
         </h1>
         <div className="space-y-16">
           {categories.map((cat) => (
-            <CategoryCard key={cat.id} id={cat.id} title={cat.title} items={cat.items} />
+            <CategoryCard key={cat.id} id={cat.id} title={cat.title} href={cat.href} items={cat.items} />
           ))}
         </div>
       </div>
