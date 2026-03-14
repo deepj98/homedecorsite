@@ -31,6 +31,9 @@ export function Header() {
   }, []);
 
   const isBeddingPage = pathname === "/bedding";
+  const isBathPage = pathname === "/bath";
+  const isKitchenPage = pathname === "/kitchen";
+  const isBeautificationPage = pathname === "/beautification";
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-beige shadow-sm">
@@ -42,7 +45,7 @@ export function Header() {
           Home Decor by JD &amp; TJ
         </Link>
         {/* Right side: landing nav or bedding search, depending on route */}
-        {isBeddingPage ? (
+        {isBeddingPage || isBathPage || isKitchenPage || isBeautificationPage ? (
           <form className="w-full max-w-xs">
             <input
               type="search"

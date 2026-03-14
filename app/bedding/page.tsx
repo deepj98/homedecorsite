@@ -140,7 +140,7 @@ export default function BeddingPage() {
         {/* Individual anchored sections (for when user jumps via pills) */}
         {beddingSubcategories.map((subcategory) => (
           <SubcategorySection
-            key={subcategory.id}
+            key={`${subcategory.id}-individual`}
             subcategory={subcategory}
             anchorId={subcategory.id}
           />
@@ -163,8 +163,8 @@ function SubcategorySection({
   const sectionId = anchorId ?? `${subcategory.id}-inline`;
 
   return (
-    <section id={sectionId} className="scroll-mt-24 mb-16">
-      <header className="mb-3">
+    <section id={sectionId} className="scroll-mt-24 mb-6">
+      <header className="mb-4">
         <h2 className="text-2xl font-semibold text-text-primary">
           {subcategory.name}
         </h2>
