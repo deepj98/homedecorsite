@@ -134,7 +134,6 @@ export default function SafetyNetsPage() {
           ))}
         </nav>
 
-/* "All" section shows every subcategory in order */
         {/* <section
           id="safety-nets-all"
           className="space-y-12 mb-16 scroll-mt-24"

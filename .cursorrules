@@ -69,6 +69,7 @@ Monorepo Management
 Backend and Database
 
 - MySQL 
+- MySQL, Table name only first letter capital, row names all small to combine to words together separate by underscore (_) sample categories_name
 - Set up on different CPU which I will provide connection details for 
 - Use the secure measures for transfering data via 
 

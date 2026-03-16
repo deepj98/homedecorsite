@@ -44,7 +44,7 @@ const PRODUCTS: Product[] = [
   },
 ];
 
-export default async function ProductPage({ params }: { params: { slug: string } }) {
+export default async function ProductPage({ params }: { params: { slug: string }}) {
   const resolvedParam = await params;
   const slug = resolvedParam.slug;
   const product = PRODUCTS.find((p) => p.slug === slug);
