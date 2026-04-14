@@ -4,12 +4,13 @@ import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
+// links for dropdown on landing page, header drop down
 const navLinks = [
   { label: "Categories", href: "#categories", subLinks: [
-    { label: "Bedding", href: "#categories-bed" },
+    { label: "Bedding", href: "#categories-bedding" }, //updated href from bed to bedding 
     { label: "Bath", href: "#categories-bath" },
     { label: "Kitchen", href: "#categories-kitchen" },
-    { label: "Beautification & Safety Nets", href: "#categories-beautification" },
+    { label: "Safety-Nets", href: "#categories-safety-nets" }, //updated href to categories-safety-nets
   ]},
   { label: "About", href: "#about" },
   // { label: "Contact", href: "#contact" },

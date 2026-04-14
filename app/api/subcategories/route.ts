@@ -6,7 +6,7 @@ export async function GET(request : NextRequest){
         const category_id = request.nextUrl.searchParams.get('category_id');
         const connection = await db_config.getConnection();
         
-        let query = 'Select * from Subcaategories';
+        let query = 'Select * from Subcategories';
         let params : (string | number)[] = [];
         if(category_id){
             query += ' where category_id = ?';
